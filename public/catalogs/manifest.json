@@ -3,7 +3,7 @@
   "catalogs": [
     {
       "id": "apollo-core",
-      "label": "Apollo Core",
+      "label": "Az Studio Core",
       "path": "/catalogs/apollo-core.json"
     }
   ]

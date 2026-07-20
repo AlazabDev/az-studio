@@ -8,11 +8,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Warm Fabric",
-    "footprint": { "x": 2.2, "y": 0.9 },
+    "footprint": {
+      "x": 2.2,
+      "y": 0.9
+    },
     "height": 0.78,
     "thumbnailTone": "linen",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "sofa", "palette": { "primary": "#c9b79a", "frame": "#2d2721", "accent": "#8a6f4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "sofa",
+      "palette": {
+        "primary": "#c9b79a",
+        "frame": "#2d2721",
+        "accent": "#8a6f4a"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -23,11 +33,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Textured Linen",
-    "footprint": { "x": 3.1, "y": 2.1 },
+    "footprint": {
+      "x": 3.1,
+      "y": 2.1
+    },
     "height": 0.82,
     "thumbnailTone": "sand",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "sofa", "palette": { "primary": "#b0a48f", "frame": "#2a2420", "accent": "#746449" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "sofa",
+      "palette": {
+        "primary": "#b0a48f",
+        "frame": "#2a2420",
+        "accent": "#746449"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -38,11 +58,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Leather",
-    "footprint": { "x": 0.88, "y": 0.84 },
+    "footprint": {
+      "x": 0.88,
+      "y": 0.84
+    },
     "height": 0.9,
     "thumbnailTone": "copper",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "armchair", "palette": { "primary": "#7a4a32", "frame": "#2b1f18", "accent": "#a56b4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "armchair",
+      "palette": {
+        "primary": "#7a4a32",
+        "frame": "#2b1f18",
+        "accent": "#a56b4a"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -53,11 +83,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Velvet",
-    "footprint": { "x": 0.82, "y": 0.9 },
+    "footprint": {
+      "x": 0.82,
+      "y": 0.9
+    },
     "height": 1.08,
     "thumbnailTone": "ink",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "armchair", "palette": { "primary": "#3f4a5e", "frame": "#181a22", "accent": "#5b6b86" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "armchair",
+      "palette": {
+        "primary": "#3f4a5e",
+        "frame": "#181a22",
+        "accent": "#5b6b86"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -68,11 +108,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Oak + Fabric",
-    "footprint": { "x": 0.48, "y": 0.52 },
+    "footprint": {
+      "x": 0.48,
+      "y": 0.52
+    },
     "height": 0.88,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "chair", "palette": { "primary": "#a88253", "frame": "#6e4e2a", "accent": "#e3dcc8" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "chair",
+      "palette": {
+        "primary": "#a88253",
+        "frame": "#6e4e2a",
+        "accent": "#e3dcc8"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -83,11 +133,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Oak + Leather",
-    "footprint": { "x": 1.5, "y": 0.38 },
+    "footprint": {
+      "x": 1.5,
+      "y": 0.38
+    },
     "height": 0.46,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bench", "palette": { "primary": "#8a6a42", "frame": "#3a2a1c", "accent": "#c5a478" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bench",
+      "palette": {
+        "primary": "#8a6a42",
+        "frame": "#3a2a1c",
+        "accent": "#c5a478"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -98,11 +158,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Mesh + Alloy",
-    "footprint": { "x": 0.64, "y": 0.64 },
+    "footprint": {
+      "x": 0.64,
+      "y": 0.64
+    },
     "height": 1.1,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "office-chair", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#4f7b4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "office-chair",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#4f7b4a"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -113,11 +183,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Walnut + Leather",
-    "footprint": { "x": 0.38, "y": 0.38 },
+    "footprint": {
+      "x": 0.38,
+      "y": 0.38
+    },
     "height": 1.04,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bar-stool", "palette": { "primary": "#3f2c1e", "frame": "#1f1510", "accent": "#c5a478" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bar-stool",
+      "palette": {
+        "primary": "#3f2c1e",
+        "frame": "#1f1510",
+        "accent": "#c5a478"
+      }
+    }
   },
   {
     "catalogId": "seating",
@@ -128,11 +208,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Walnut + Leather",
-    "footprint": { "x": 0.42, "y": 0.42 },
+    "footprint": {
+      "x": 0.42,
+      "y": 0.42
+    },
     "height": 0.76,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "stool", "palette": { "primary": "#3f2c1e", "frame": "#1f1510", "accent": "#7a5a3a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "stool",
+      "palette": {
+        "primary": "#3f2c1e",
+        "frame": "#1f1510",
+        "accent": "#7a5a3a"
+      }
+    }
   },
   {
     "catalogId": "tables",
@@ -143,11 +233,20 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Oak",
-    "footprint": { "x": 1.8, "y": 0.9 },
+    "footprint": {
+      "x": 1.8,
+      "y": 0.9
+    },
     "height": 0.74,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "table", "palette": { "primary": "#9a7a52", "frame": "#3a2a1c" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "table",
+      "palette": {
+        "primary": "#9a7a52",
+        "frame": "#3a2a1c"
+      }
+    }
   },
   {
     "catalogId": "tables",
@@ -158,11 +257,20 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Smoked Oak",
-    "footprint": { "x": 0.95, "y": 0.95 },
+    "footprint": {
+      "x": 0.95,
+      "y": 0.95
+    },
     "height": 0.38,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "table", "palette": { "primary": "#5a4230", "frame": "#2a1e15" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "table",
+      "palette": {
+        "primary": "#5a4230",
+        "frame": "#2a1e15"
+      }
+    }
   },
   {
     "catalogId": "tables",
@@ -173,11 +281,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Brass + Glass",
-    "footprint": { "x": 0.5, "y": 0.5 },
+    "footprint": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "height": 0.52,
     "thumbnailTone": "brass",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "table", "palette": { "primary": "#c29a4a", "frame": "#8a6b30", "glass": "#c8d6db" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "table",
+      "palette": {
+        "primary": "#c29a4a",
+        "frame": "#8a6b30",
+        "glass": "#c8d6db"
+      }
+    }
   },
   {
     "catalogId": "tables",
@@ -188,11 +306,20 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Walnut",
-    "footprint": { "x": 1.4, "y": 0.7 },
+    "footprint": {
+      "x": 1.4,
+      "y": 0.7
+    },
     "height": 0.74,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "desk", "palette": { "primary": "#3e2a1c", "frame": "#1a110a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "desk",
+      "palette": {
+        "primary": "#3e2a1c",
+        "frame": "#1a110a"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -203,11 +330,22 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Upholstered Fabric",
-    "footprint": { "x": 1.7, "y": 2.1 },
+    "footprint": {
+      "x": 1.7,
+      "y": 2.1
+    },
     "height": 1.1,
     "thumbnailTone": "linen",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bed", "palette": { "primary": "#b8ad95", "seat": "#e8e0cf", "frame": "#2a241c", "accent": "#5d6b88" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bed",
+      "palette": {
+        "primary": "#b8ad95",
+        "seat": "#e8e0cf",
+        "frame": "#2a241c",
+        "accent": "#5d6b88"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -218,11 +356,22 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Velvet + Walnut",
-    "footprint": { "x": 2.1, "y": 2.2 },
+    "footprint": {
+      "x": 2.1,
+      "y": 2.2
+    },
     "height": 1.18,
     "thumbnailTone": "ink",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bed", "palette": { "primary": "#3a3f4e", "seat": "#c9d0dc", "frame": "#1b1e26", "accent": "#8a95a8" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bed",
+      "palette": {
+        "primary": "#3a3f4e",
+        "seat": "#c9d0dc",
+        "frame": "#1b1e26",
+        "accent": "#8a95a8"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -233,11 +382,22 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Upholstered Fabric",
-    "footprint": { "x": 1.05, "y": 2.0 },
+    "footprint": {
+      "x": 1.05,
+      "y": 2.0
+    },
     "height": 1.0,
     "thumbnailTone": "linen",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bed", "palette": { "primary": "#b0a890", "seat": "#ebe2d2", "frame": "#29231b", "accent": "#5d6b88" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bed",
+      "palette": {
+        "primary": "#b0a890",
+        "seat": "#ebe2d2",
+        "frame": "#29231b",
+        "accent": "#5d6b88"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -248,12 +408,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Oak",
-    "footprint": { "x": 0.45, "y": 0.4 },
+    "footprint": {
+      "x": 0.45,
+      "y": 0.4
+    },
     "height": 0.55,
     "mountHeight": 0,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "nightstand", "palette": { "primary": "#9a7a52", "frame": "#3a2a1c", "accent": "#b89770" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "nightstand",
+      "palette": {
+        "primary": "#9a7a52",
+        "frame": "#3a2a1c",
+        "accent": "#b89770"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -264,12 +434,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Walnut",
-    "footprint": { "x": 1.4, "y": 0.45 },
+    "footprint": {
+      "x": 1.4,
+      "y": 0.45
+    },
     "height": 0.85,
     "mountHeight": 0,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "dresser", "palette": { "primary": "#3d2a1c", "frame": "#1a110a", "accent": "#b89770" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "dresser",
+      "palette": {
+        "primary": "#3d2a1c",
+        "frame": "#1a110a",
+        "accent": "#b89770"
+      }
+    }
   },
   {
     "catalogId": "bedroom",
@@ -280,11 +460,21 @@
     "family": "casework",
     "placementMode": "free",
     "material": "White Oak",
-    "footprint": { "x": 1.6, "y": 0.58 },
+    "footprint": {
+      "x": 1.6,
+      "y": 0.58
+    },
     "height": 2.1,
     "thumbnailTone": "birch",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "wardrobe", "palette": { "primary": "#d2c4a8", "frame": "#8a7558", "accent": "#3f372a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "wardrobe",
+      "palette": {
+        "primary": "#d2c4a8",
+        "frame": "#8a7558",
+        "accent": "#3f372a"
+      }
+    }
   },
   {
     "catalogId": "storage",
@@ -295,11 +485,21 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Walnut",
-    "footprint": { "x": 1.1, "y": 0.36 },
+    "footprint": {
+      "x": 1.1,
+      "y": 0.36
+    },
     "height": 1.9,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bookshelf", "palette": { "primary": "#3d2a1c", "frame": "#1a110a", "accent": "#b89770" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bookshelf",
+      "palette": {
+        "primary": "#3d2a1c",
+        "frame": "#1a110a",
+        "accent": "#b89770"
+      }
+    }
   },
   {
     "catalogId": "storage",
@@ -310,12 +510,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Steel",
-    "footprint": { "x": 0.42, "y": 0.6 },
+    "footprint": {
+      "x": 0.42,
+      "y": 0.6
+    },
     "height": 1.32,
     "mountHeight": 0,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "filing-cabinet", "palette": { "primary": "#9aa0a8", "frame": "#2a2d32", "accent": "#d0d4da" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "filing-cabinet",
+      "palette": {
+        "primary": "#9aa0a8",
+        "frame": "#2a2d32",
+        "accent": "#d0d4da"
+      }
+    }
   },
   {
     "catalogId": "storage",
@@ -326,11 +536,20 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Oak",
-    "footprint": { "x": 1.4, "y": 0.35 },
+    "footprint": {
+      "x": 1.4,
+      "y": 0.35
+    },
     "height": 0.82,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "console", "palette": { "primary": "#9a7a52", "frame": "#3a2a1c" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "console",
+      "palette": {
+        "primary": "#9a7a52",
+        "frame": "#3a2a1c"
+      }
+    }
   },
   {
     "catalogId": "storage",
@@ -341,11 +560,21 @@
     "family": "furniture",
     "placementMode": "free",
     "material": "Smoked Oak",
-    "footprint": { "x": 1.8, "y": 0.42 },
+    "footprint": {
+      "x": 1.8,
+      "y": 0.42
+    },
     "height": 0.5,
     "thumbnailTone": "walnut",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "media-console", "palette": { "primary": "#4a3629", "frame": "#1a110a", "accent": "#b89770" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "media-console",
+      "palette": {
+        "primary": "#4a3629",
+        "frame": "#1a110a",
+        "accent": "#b89770"
+      }
+    }
   },
   {
     "catalogId": "storage",
@@ -356,11 +585,21 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Lacquered Ash",
-    "footprint": { "x": 1.6, "y": 0.42 },
+    "footprint": {
+      "x": 1.6,
+      "y": 0.42
+    },
     "height": 0.6,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#8a9aa8" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#8a9aa8"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -371,12 +610,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Matte Laminate",
-    "footprint": { "x": 0.6, "y": 0.6 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "height": 0.85,
     "mountHeight": 0,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#b8bcc3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#b8bcc3"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -387,12 +636,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Matte Laminate",
-    "footprint": { "x": 0.8, "y": 0.6 },
+    "footprint": {
+      "x": 0.8,
+      "y": 0.6
+    },
     "height": 0.85,
     "mountHeight": 0,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#b8bcc3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#b8bcc3"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -403,12 +662,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Matte Laminate",
-    "footprint": { "x": 0.6, "y": 0.35 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.35
+    },
     "height": 0.7,
     "mountHeight": 1.4,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#b8bcc3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#b8bcc3"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -419,12 +688,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Matte Laminate",
-    "footprint": { "x": 0.8, "y": 0.35 },
+    "footprint": {
+      "x": 0.8,
+      "y": 0.35
+    },
     "height": 0.7,
     "mountHeight": 1.4,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#b8bcc3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#b8bcc3"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -435,12 +714,22 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Matte Laminate",
-    "footprint": { "x": 0.6, "y": 0.6 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "height": 2.1,
     "mountHeight": 0,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "cabinet", "palette": { "primary": "#2a2d32", "frame": "#14161a", "accent": "#b8bcc3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "cabinet",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#14161a",
+        "accent": "#b8bcc3"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -451,11 +740,21 @@
     "family": "casework",
     "placementMode": "free",
     "material": "Oak + Stone",
-    "footprint": { "x": 2.4, "y": 0.9 },
+    "footprint": {
+      "x": 2.4,
+      "y": 0.9
+    },
     "height": 0.92,
     "thumbnailTone": "travertine",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "kitchen-island", "palette": { "primary": "#b0a492", "frame": "#3f372a", "accent": "#d0c9b8" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "kitchen-island",
+      "palette": {
+        "primary": "#b0a492",
+        "frame": "#3f372a",
+        "accent": "#d0c9b8"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -466,11 +765,21 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Brushed Steel",
-    "footprint": { "x": 0.76, "y": 0.7 },
+    "footprint": {
+      "x": 0.76,
+      "y": 0.7
+    },
     "height": 1.9,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "fridge", "palette": { "primary": "#b8bcc3", "frame": "#7a7e85", "accent": "#2a2d32" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "fridge",
+      "palette": {
+        "primary": "#b8bcc3",
+        "frame": "#7a7e85",
+        "accent": "#2a2d32"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -481,11 +790,21 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Stainless",
-    "footprint": { "x": 0.75, "y": 0.6 },
+    "footprint": {
+      "x": 0.75,
+      "y": 0.6
+    },
     "height": 0.92,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "stove", "palette": { "primary": "#9a9ea5", "frame": "#2a2d32", "accent": "#1a1c20" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "stove",
+      "palette": {
+        "primary": "#9a9ea5",
+        "frame": "#2a2d32",
+        "accent": "#1a1c20"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -496,11 +815,21 @@
     "family": "sanitary",
     "placementMode": "free",
     "material": "Stainless",
-    "footprint": { "x": 0.8, "y": 0.5 },
+    "footprint": {
+      "x": 0.8,
+      "y": 0.5
+    },
     "height": 0.12,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "basin", "palette": { "primary": "#b0b5bc", "frame": "#6e7279", "accent": "#d8dce1" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "basin",
+      "palette": {
+        "primary": "#b0b5bc",
+        "frame": "#6e7279",
+        "accent": "#d8dce1"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -511,12 +840,23 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Stainless",
-    "footprint": { "x": 0.5, "y": 0.38 },
+    "footprint": {
+      "x": 0.5,
+      "y": 0.38
+    },
     "height": 0.3,
     "mountHeight": 0.9,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "microwave", "palette": { "primary": "#1a1c20", "frame": "#050607", "accent": "#e8b169", "glass": "#2a2d32" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "microwave",
+      "palette": {
+        "primary": "#1a1c20",
+        "frame": "#050607",
+        "accent": "#e8b169",
+        "glass": "#2a2d32"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -527,12 +867,22 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Stainless",
-    "footprint": { "x": 0.6, "y": 0.6 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "height": 0.85,
     "mountHeight": 0,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "dishwasher", "palette": { "primary": "#b0b5bc", "frame": "#2a2d32", "accent": "#4fb3b1" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "dishwasher",
+      "palette": {
+        "primary": "#b0b5bc",
+        "frame": "#2a2d32",
+        "accent": "#4fb3b1"
+      }
+    }
   },
   {
     "catalogId": "kitchen",
@@ -543,12 +893,22 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Stainless",
-    "footprint": { "x": 0.9, "y": 0.48 },
+    "footprint": {
+      "x": 0.9,
+      "y": 0.48
+    },
     "height": 0.5,
     "mountHeight": 1.5,
     "thumbnailTone": "steel",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "range-hood", "palette": { "primary": "#c0c5cc", "frame": "#1a1c20", "accent": "#2a2d32" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "range-hood",
+      "palette": {
+        "primary": "#c0c5cc",
+        "frame": "#1a1c20",
+        "accent": "#2a2d32"
+      }
+    }
   },
   {
     "catalogId": "bathroom",
@@ -559,11 +919,22 @@
     "family": "sanitary",
     "placementMode": "free",
     "material": "Glass + Ceramic",
-    "footprint": { "x": 0.9, "y": 0.9 },
+    "footprint": {
+      "x": 0.9,
+      "y": 0.9
+    },
     "height": 2.0,
     "thumbnailTone": "ice",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "shower", "palette": { "primary": "#f0efeb", "frame": "#2a2d32", "glass": "#b8d5db", "accent": "#c29a4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "shower",
+      "palette": {
+        "primary": "#f0efeb",
+        "frame": "#2a2d32",
+        "glass": "#b8d5db",
+        "accent": "#c29a4a"
+      }
+    }
   },
   {
     "catalogId": "bathroom",
@@ -574,12 +945,23 @@
     "family": "appliance",
     "placementMode": "free",
     "material": "Enamel Steel",
-    "footprint": { "x": 0.6, "y": 0.6 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "height": 0.85,
     "mountHeight": 0,
     "thumbnailTone": "white",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "washing-machine", "palette": { "primary": "#e8eaed", "frame": "#2a2d32", "accent": "#4fb3b1", "glass": "#3a4048" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "washing-machine",
+      "palette": {
+        "primary": "#e8eaed",
+        "frame": "#2a2d32",
+        "accent": "#4fb3b1",
+        "glass": "#3a4048"
+      }
+    }
   },
   {
     "catalogId": "bathroom",
@@ -590,11 +972,21 @@
     "family": "sanitary",
     "placementMode": "free",
     "material": "Porcelain",
-    "footprint": { "x": 1.8, "y": 0.9 },
+    "footprint": {
+      "x": 1.8,
+      "y": 0.9
+    },
     "height": 0.6,
     "thumbnailTone": "porcelain",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "bathtub", "palette": { "primary": "#f0efeb", "frame": "#c8c5bc", "accent": "#6a7480" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bathtub",
+      "palette": {
+        "primary": "#f0efeb",
+        "frame": "#c8c5bc",
+        "accent": "#6a7480"
+      }
+    }
   },
   {
     "catalogId": "bathroom",
@@ -605,11 +997,20 @@
     "family": "sanitary",
     "placementMode": "free",
     "material": "Porcelain",
-    "footprint": { "x": 0.4, "y": 0.58 },
+    "footprint": {
+      "x": 0.4,
+      "y": 0.58
+    },
     "height": 0.44,
     "thumbnailTone": "white",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "toilet", "palette": { "primary": "#f4f4f2", "accent": "#8a9098" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "toilet",
+      "palette": {
+        "primary": "#f4f4f2",
+        "accent": "#8a9098"
+      }
+    }
   },
   {
     "catalogId": "bathroom",
@@ -620,11 +1021,21 @@
     "family": "sanitary",
     "placementMode": "free",
     "material": "Marble + Ceramic",
-    "footprint": { "x": 1.2, "y": 0.5 },
+    "footprint": {
+      "x": 1.2,
+      "y": 0.5
+    },
     "height": 0.85,
     "thumbnailTone": "porcelain",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "basin", "palette": { "primary": "#e8e5de", "frame": "#3f372a", "accent": "#b8b5ae" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "basin",
+      "palette": {
+        "primary": "#e8e5de",
+        "frame": "#3f372a",
+        "accent": "#b8b5ae"
+      }
+    }
   },
   {
     "catalogId": "lighting",
@@ -635,11 +1046,20 @@
     "family": "lighting",
     "placementMode": "free",
     "material": "Brass",
-    "footprint": { "x": 0.4, "y": 0.4 },
+    "footprint": {
+      "x": 0.4,
+      "y": 0.4
+    },
     "height": 1.6,
     "thumbnailTone": "brass",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "lamp-floor", "palette": { "primary": "#c29a4a", "accent": "#f0ddb0" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "lamp-floor",
+      "palette": {
+        "primary": "#c29a4a",
+        "accent": "#f0ddb0"
+      }
+    }
   },
   {
     "catalogId": "lighting",
@@ -650,11 +1070,20 @@
     "family": "lighting",
     "placementMode": "free",
     "material": "Ceramic",
-    "footprint": { "x": 0.32, "y": 0.32 },
+    "footprint": {
+      "x": 0.32,
+      "y": 0.32
+    },
     "height": 0.48,
     "thumbnailTone": "porcelain",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "lamp-table", "palette": { "primary": "#e8e3d6", "accent": "#f0ddb0" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "lamp-table",
+      "palette": {
+        "primary": "#e8e3d6",
+        "accent": "#f0ddb0"
+      }
+    }
   },
   {
     "catalogId": "lighting",
@@ -665,11 +1094,21 @@
     "family": "lighting",
     "placementMode": "free",
     "material": "Blown Glass + Brass",
-    "footprint": { "x": 0.5, "y": 0.5 },
+    "footprint": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "height": 2.3,
     "thumbnailTone": "brass",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "pendant", "palette": { "primary": "#c29a4a", "accent": "#f0ddb0", "glass": "#e0d8c0" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "pendant",
+      "palette": {
+        "primary": "#c29a4a",
+        "accent": "#f0ddb0",
+        "glass": "#e0d8c0"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -680,11 +1119,21 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Terracotta + Leaves",
-    "footprint": { "x": 0.6, "y": 0.6 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "height": 1.3,
     "thumbnailTone": "timber",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "plant", "palette": { "primary": "#3a5a3a", "frame": "#8a5a3a", "accent": "#5e8c4e" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "plant",
+      "palette": {
+        "primary": "#3a5a3a",
+        "frame": "#8a5a3a",
+        "accent": "#5e8c4e"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -695,11 +1144,21 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Terracotta + Leaves",
-    "footprint": { "x": 0.55, "y": 0.55 },
+    "footprint": {
+      "x": 0.55,
+      "y": 0.55
+    },
     "height": 1.8,
     "thumbnailTone": "timber",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "plant", "palette": { "primary": "#2f5030", "frame": "#7a4a2a", "accent": "#4f7b4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "plant",
+      "palette": {
+        "primary": "#2f5030",
+        "frame": "#7a4a2a",
+        "accent": "#4f7b4a"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -710,11 +1169,20 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Wool",
-    "footprint": { "x": 2.8, "y": 0.9 },
+    "footprint": {
+      "x": 2.8,
+      "y": 0.9
+    },
     "height": 0.02,
     "thumbnailTone": "linen",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "rug", "palette": { "primary": "#b8a990", "accent": "#6a5a3a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "rug",
+      "palette": {
+        "primary": "#b8a990",
+        "accent": "#6a5a3a"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -725,11 +1193,20 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Wool",
-    "footprint": { "x": 3.0, "y": 2.2 },
+    "footprint": {
+      "x": 3.0,
+      "y": 2.2
+    },
     "height": 0.02,
     "thumbnailTone": "sand",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "rug", "palette": { "primary": "#a89b7e", "accent": "#5e5038" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "rug",
+      "palette": {
+        "primary": "#a89b7e",
+        "accent": "#5e5038"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -740,11 +1217,20 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Glass + Alloy",
-    "footprint": { "x": 0.6, "y": 0.2 },
+    "footprint": {
+      "x": 0.6,
+      "y": 0.2
+    },
     "height": 0.48,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "monitor", "palette": { "primary": "#0e1014", "frame": "#2a2d32" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "monitor",
+      "palette": {
+        "primary": "#0e1014",
+        "frame": "#2a2d32"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -755,11 +1241,20 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Canvas + Alloy",
-    "footprint": { "x": 2.4, "y": 2.4 },
+    "footprint": {
+      "x": 2.4,
+      "y": 2.4
+    },
     "height": 2.2,
     "thumbnailTone": "linen",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "parasol", "palette": { "primary": "#d8d0bc", "frame": "#3a2a1c" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "parasol",
+      "palette": {
+        "primary": "#d8d0bc",
+        "frame": "#3a2a1c"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -770,11 +1265,21 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Enamel Steel",
-    "footprint": { "x": 1.2, "y": 0.6 },
+    "footprint": {
+      "x": 1.2,
+      "y": 0.6
+    },
     "height": 1.1,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "grill", "palette": { "primary": "#1a1c20", "frame": "#0a0c0e", "accent": "#c29a4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "grill",
+      "palette": {
+        "primary": "#1a1c20",
+        "frame": "#0a0c0e",
+        "accent": "#c29a4a"
+      }
+    }
   },
   {
     "catalogId": "decor",
@@ -785,11 +1290,20 @@
     "family": "decor",
     "placementMode": "free",
     "material": "Glass + Alloy",
-    "footprint": { "x": 1.5, "y": 0.1 },
+    "footprint": {
+      "x": 1.5,
+      "y": 0.1
+    },
     "height": 0.88,
     "thumbnailTone": "graphite",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "tv", "palette": { "primary": "#0e1014", "frame": "#202327" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "tv",
+      "palette": {
+        "primary": "#0e1014",
+        "frame": "#202327"
+      }
+    }
   },
   {
     "catalogId": "openings",
@@ -800,11 +1314,21 @@
     "family": "door",
     "placementMode": "hosted-wall",
     "material": "Stained Oak",
-    "footprint": { "x": 0.9, "y": 0.06 },
+    "footprint": {
+      "x": 0.9,
+      "y": 0.06
+    },
     "height": 2.1,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "door", "palette": { "primary": "#6e4e2a", "frame": "#3a2a1c", "accent": "#c29a4a" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "door",
+      "palette": {
+        "primary": "#6e4e2a",
+        "frame": "#3a2a1c",
+        "accent": "#c29a4a"
+      }
+    }
   },
   {
     "catalogId": "openings",
@@ -815,11 +1339,22 @@
     "family": "door",
     "placementMode": "hosted-wall",
     "material": "Glazed Oak",
-    "footprint": { "x": 1.6, "y": 0.08 },
+    "footprint": {
+      "x": 1.6,
+      "y": 0.08
+    },
     "height": 2.3,
     "thumbnailTone": "oak",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "door", "palette": { "primary": "#8a6a42", "frame": "#3a2a1c", "accent": "#d8e3e8", "glass": "#b8d5db" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "door",
+      "palette": {
+        "primary": "#8a6a42",
+        "frame": "#3a2a1c",
+        "accent": "#d8e3e8",
+        "glass": "#b8d5db"
+      }
+    }
   },
   {
     "catalogId": "openings",
@@ -830,12 +1365,22 @@
     "family": "window",
     "placementMode": "hosted-wall",
     "material": "Aluminium",
-    "footprint": { "x": 1.2, "y": 0.06 },
+    "footprint": {
+      "x": 1.2,
+      "y": 0.06
+    },
     "height": 1.4,
     "defaultSillHeight": 0.9,
     "thumbnailTone": "ice",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "window", "palette": { "primary": "#2a2d32", "frame": "#1a1c20", "glass": "#b8d5db" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "window",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#1a1c20",
+        "glass": "#b8d5db"
+      }
+    }
   },
   {
     "catalogId": "openings",
@@ -846,11 +1391,47 @@
     "family": "window",
     "placementMode": "hosted-wall",
     "material": "Thermal Aluminium",
-    "footprint": { "x": 2.0, "y": 0.08 },
+    "footprint": {
+      "x": 2.0,
+      "y": 0.08
+    },
     "height": 2.6,
     "defaultSillHeight": 0.1,
     "thumbnailTone": "ice",
-    "vendor": "Apollo Core",
-    "procedural": { "kind": "window", "palette": { "primary": "#2a2d32", "frame": "#1a1c20", "glass": "#c8dde3" } }
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "window",
+      "palette": {
+        "primary": "#2a2d32",
+        "frame": "#1a1c20",
+        "glass": "#c8dde3"
+      }
+    }
+  },
+  {
+    "catalogId": "storage",
+    "catalogLabel": "Storage",
+    "key": "az-shelving-unit-40",
+    "name": "Az Shelving Unit 40",
+    "category": "Shelving",
+    "family": "casework",
+    "placementMode": "free",
+    "material": "White MDF",
+    "footprint": {
+      "x": 0.4,
+      "y": 0.4
+    },
+    "height": 3.0,
+    "mountHeight": 0,
+    "thumbnailTone": "white",
+    "vendor": "Az Studio Core",
+    "procedural": {
+      "kind": "bookshelf",
+      "palette": {
+        "primary": "#f2f2f2",
+        "frame": "#8a8a8a",
+        "accent": "#d9d9d9"
+      }
+    }
   }
 ]

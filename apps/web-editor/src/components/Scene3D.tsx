@@ -139,7 +139,7 @@ export function Scene3D({ scene, entities, selectedEntityId, background = "apart
     if (!canvas) return;
     const dataUrl = canvas.toDataURL("image/png");
     const link = document.createElement("a");
-    link.download = `Apollo_Render_${Date.now()}.png`;
+    link.download = `AzStudio_Render_${Date.now()}.png`;
     link.href = dataUrl;
     link.click();
   };

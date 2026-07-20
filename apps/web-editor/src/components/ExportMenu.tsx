@@ -22,7 +22,7 @@ const OPTIONS: ExportOption[] = [
   { id: "glb", label: "GLB", description: "Binary glTF for DCC / Sketchfab" },
   { id: "obj", label: "OBJ", description: "Wavefront OBJ (widely supported)" },
   { id: "stl", label: "STL", description: "Binary STL for 3D printing" },
-  { id: "json-gz", label: "Compressed JSON", description: "Apollo project, gzip" }
+  { id: "json-gz", label: "Compressed JSON", description: "Az Studio project, gzip" }
 ];
 
 export function ExportMenu({ getSerializedSceneJson }: ExportMenuProps) {

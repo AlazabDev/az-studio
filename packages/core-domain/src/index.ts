@@ -189,7 +189,7 @@ export function getComponentDefinition(componentKey: string): ComponentDefinitio
 
 export const sampleScene: Scene = {
   id: "atelier-loft",
-  name: "Atelier Loft",
+  name: "Alazab BIM Workspace",
   unitSystem: "m",
   entities: [
     {

@@ -391,7 +391,7 @@ function App() {
         <div className="topbar-brand">
           <div className="brand-glyph" aria-hidden="true">A</div>
           <div className="brand-text">
-            <div className="brand-name">Apollo Studio</div>
+            <div className="brand-name">Az Studio</div>
             <div className="brand-project">{editorState.scene.name}</div>
           </div>
         </div>

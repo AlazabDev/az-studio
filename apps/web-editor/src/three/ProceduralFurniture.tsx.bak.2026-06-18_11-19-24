@@ -297,14 +297,8 @@ function Cabinet({ width, depth, height, palette }: RecipeProps) {
 function Bookshelf({ width, depth, height, palette }: RecipeProps) {
   const shelves = 4;
   const shelfT = 0.03;
-  const backT = 0.03;
   return (
     <group>
-      {/* Back panel */}
-      <mesh castShadow receiveShadow position={[0, height / 2, -depth / 2 + backT / 2]}>
-        <boxGeometry args={[width, height, backT]} />
-        {mat(palette.frame ?? palette.primary, { roughness: 0.75 })}
-      </mesh>
       <mesh castShadow position={[-width / 2 + 0.02, height / 2, 0]}>
         <boxGeometry args={[0.04, height, depth]} />
         {mat(palette.primary)}

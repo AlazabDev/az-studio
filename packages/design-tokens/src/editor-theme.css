@@ -1,4 +1,4 @@
-/* Apollo Studio — Design Tokens
+/* Az Studio — Design Tokens
  * Single source of truth for color, spacing, radii, type, elevation, motion.
  * Uses OKLCH where supported, falls back to hex for older targets.
  * Palette: neutral dark base, warm amber accent (the product signature).

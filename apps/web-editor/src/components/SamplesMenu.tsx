@@ -12,7 +12,7 @@ export type SampleEntry = {
 export const SAMPLES: SampleEntry[] = [
   {
     id: "atelier-loft",
-    name: "Atelier Loft",
+    name: "Alazab BIM Workspace",
     description: "Open-plan loft with a reading corner",
     file: "./samples/atelier-loft.json",
     Icon: IconHome

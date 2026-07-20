@@ -2,7 +2,7 @@
   "schemaVersion": "0.1.0",
   "project": {
     "id": "atelier-loft",
-    "name": "Atelier Loft",
+    "name": "Alazab BIM Workspace",
     "unitSystem": "m"
   },
   "scene": {

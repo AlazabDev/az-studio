@@ -1,4 +1,4 @@
-name: Deploy Apollo Studio to GitHub Pages
+name: Deploy Az Studio to GitHub Pages
 
 on:
   push:
