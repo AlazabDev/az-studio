@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./favicon.svg" width="64" height="64" alt="Apollo Studio" />
+<img src="./favicon.svg" width="64" height="64" alt="Az Studio" />
 
-# Apollo - 2D & 3D Architectural Studio
+# Az - 2D & 3D Architectural Studio
 
 ### Browser-first Architectural Editor
 
@@ -10,7 +10,7 @@ Draw floor plans in 2D. Walk through them in 3D. No install, no export step — 
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-aykutsp.github.io-d99b4b?style=for-the-badge)](https://aykutsp.github.io/apollo-studio/)
+[![Live Demo](https://img.shields.io/badge/▶%20Live%20Demo-aykutsp.github.io-d99b4b?style=for-the-badge)](https://aykutsp.github.io/az-studio/)
 
 <br/>
 
@@ -29,7 +29,11 @@ Draw floor plans in 2D. Walk through them in 3D. No install, no export step — 
 
 ## Overview
 
-Apollo Studio is a real architectural editor that runs entirely in the browser. It bridges the gap between simple floor-plan web apps and heavyweight desktop CAD — giving you precision 2D drafting and a live 3D walkthrough of the same model, simultaneously, with no plugins or exports required.
+Az Studio is a real architectural editor that runs entirely in the browser. It bridges the gap between simple floor-plan web apps and heavyweight desktop CAD — giving you precision 2D drafting without the learning curve or annual licensing fees.
+
+A complete, production-grade scene graph powers both the 2D canvas and the real-time 3D viewport. Drag a wall, and the 3D geometry updates instantly. Rotate the 3D view, and the 2D plan tracks what you're looking at.
+
+Design faster. Iterate live. Export standards-compliant GLB, OBJ, or STL.
 
 Your project is stored as plain JSON, fully portable and version-control friendly.
 
@@ -81,8 +85,8 @@ Your project is stored as plain JSON, fully portable and version-control friendl
 ## Getting Started
 
 ```bash
-git clone https://github.com/aykutsp/apollo-studio.git
-cd apollo-studio
+git clone https://github.com/AlazabDev/az-studio.git
+cd az-studio
 npm install
 npm run dev        # → http://localhost:5173
 ```
@@ -140,7 +144,7 @@ npm run preview    # serve the production bundle locally
 ## Project Structure
 
 ```
-apollo-studio/
+az-studio/
 ├── apps/
 │   └── web-editor/          Vite + React 19 app shell
 │       └── src/
@@ -189,7 +193,7 @@ Use `"placementMode": "hosted-wall"` for doors and windows — the editor will s
 
 ## License
 
-Apollo Studio is dual-licensed:
+Az Studio is dual-licensed:
 
 - **Open-source** — [AGPL-3.0-or-later](./LICENSE). Forks and hosted modifications must publish source under the same terms.
 - **Commercial** — a separate license is available for closed-source products, OEM embedding, managed SaaS, or enterprise deployments. See [COMMERCIAL-LICENSE.md](./COMMERCIAL-LICENSE.md).
@@ -206,18 +210,18 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md). Open an issue before large refactors, 
 
 ## Acknowledgments
 
-Rendering built on [Three.js](https://threejs.org), [react-three-fiber](https://docs.pmnd.rs/react-three-fiber), and [@react-three/drei](https://github.com/pmndrs/drei). Typography uses [Inter](https://rsms.me/inter/). Editor interaction patterns draw from SketchUp, Live Home 3D, and floor-plan.ai.
+Rendering built on [Three.js](https://threejs.org), [react-three-fiber](https://docs.pmnd.rs/react-three-fiber), and [@react-three/drei](https://github.com/pmndrs/drei). Typography uses [Inter](https://rsms.me/inter/) and [JetBrains Mono](https://www.jetbrainsmono.com).
 
 ---
 
 ## Status
 
-Apollo Studio is in **alpha**. The file format, procedural recipe schema, and component APIs may change before 1.0. Pin to a specific commit for anything you need to stay stable.
+Az Studio is in **alpha**. The file format, procedural recipe schema, and component APIs may change before 1.0. Pin to a specific commit for anything you need to stay stable.
 
 <div align="center">
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/▶%20Try%20Apollo%20Studio-Live%20Demo-d99b4b?style=for-the-badge)](https://aykutsp.github.io/apollo-studio/)
+[![Live Demo](https://img.shields.io/badge/▶%20Try%20Az%20Studio-Live%20Demo-d99b4b?style=for-the-badge)](https://aykutsp.github.io/az-studio/)
 
 </div>
