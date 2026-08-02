@@ -1,0 +1,17 @@
+/*
+ * Shell stacking contract.
+ *
+ * The top bar and the workspace are sibling stacking contexts. Keeping them
+ * at the same z-index lets the later workspace paint over dropdown panels,
+ * even when the panel itself uses --z-overlay. Raise the complete top-bar
+ * context above the design viewport so all menus remain visible.
+ */
+
+.app-shell > .workspace {
+  z-index: var(--z-base);
+}
+
+.app-shell > .topbar {
+  z-index: var(--z-docked);
+  overflow: visible;
+}
