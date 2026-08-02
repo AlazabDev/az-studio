@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "../../../packages/design-tokens/src/editor-theme.css";
 import "./styles.css";
+import "./stacking.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
