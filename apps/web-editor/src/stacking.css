@@ -15,3 +15,14 @@
   z-index: var(--z-docked);
   overflow: visible;
 }
+
+/*
+ * Top-bar dropdowns are portaled to document.body so WebGL/canvas compositing
+ * cannot paint over them. Fixed positioning is calculated from the trigger.
+ */
+.menu-panel-portal {
+  position: fixed;
+  z-index: 10000;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
