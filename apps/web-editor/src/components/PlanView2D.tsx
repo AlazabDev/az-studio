@@ -44,6 +44,7 @@ type PlanView2DProps = {
   onDuplicateEntity?: (entityId: string) => void;
   onDeleteEntity?: (entityId: string) => void;
   onRenameEntity?: (entityId: string, nextName: string) => void;
+  reviewMode?: boolean;
 };
 
 type PointFromClient = (clientX: number, clientY: number, svg: SVGSVGElement) => Vec2;
@@ -75,7 +76,8 @@ export function PlanView2D({
   onPlaceHostedOpening,
   onDuplicateEntity,
   onDeleteEntity,
-  onRenameEntity
+  onRenameEntity,
+  reviewMode = false
 }: PlanView2DProps) {
   const [contextMenu, setContextMenu] = useState<{
     open: boolean;
@@ -112,7 +114,7 @@ export function PlanView2D({
         onRenameEntity(contextMenu.entityId, next.trim());
       }
     },
-    canDuplicate: Boolean(onDuplicateEntity),
+    canDuplicate: Boolean(onDuplicateEntity) && !(targetEntity?.type === "object" && targetEntity.technical?.kind === "cctv-camera"),
     canDelete: Boolean(onDeleteEntity),
     canRename: Boolean(onRenameEntity && targetEntity)
   });
@@ -393,8 +395,8 @@ export function PlanView2D({
   return (
     <div className="viewport" ref={containerRef}>
       <div className="viewport-title">
-        <span className="eyebrow">Plan</span>
-        <span className="title">Live 2D</span>
+        <span className="eyebrow">{reviewMode ? "Technical Review" : "Plan"}</span>
+        <span className="title">{reviewMode ? "CCTV Layout" : "Live 2D"}</span>
       </div>
 
       <div className="overlay overlay-top-right">
@@ -461,6 +463,9 @@ export function PlanView2D({
         </defs>
 
         <rect x={-viewportSize * 4} y={-viewportSize * 4} width={viewportSize * 9} height={viewportSize * 9} fill="#0c1118" />
+        {scene.drawing ? (
+          <DrawingLayer drawing={scene.drawing} viewportSize={viewportSize} />
+        ) : null}
         <rect x={-viewportSize * 4} y={-viewportSize * 4} width={viewportSize * 9} height={viewportSize * 9} fill="url(#plan-grid-minor)" />
         <rect x={-viewportSize * 4} y={-viewportSize * 4} width={viewportSize * 9} height={viewportSize * 9} fill="url(#plan-grid-major)" />
 
@@ -577,6 +582,14 @@ export function PlanView2D({
           </g>
         ) : null}
 
+        {reviewMode && !scene.drawing ? (
+          <g pointerEvents="none">
+            <rect x={viewportSize * 0.22} y={viewportSize * 0.37} width={viewportSize * 0.56} height={viewportSize * 0.18} rx="12" fill="rgba(12,17,24,0.88)" stroke="rgba(232,177,105,0.35)" />
+            <text x={viewportSize / 2} y={viewportSize * 0.445} textAnchor="middle" fill="#e8eef8" fontSize="18" fontWeight="600">Upload a floor plan to start CCTV review</text>
+            <text x={viewportSize / 2} y={viewportSize * 0.49} textAnchor="middle" fill="rgba(232,238,248,0.62)" fontSize="12">PDF · PNG · JPG · WEBP</text>
+          </g>
+        ) : null}
+
         <CameraIndicator2D toSvg={toSvg} />
       </svg>
 
@@ -600,6 +613,36 @@ export function PlanView2D({
         onClose={closeContextMenu}
       />
     </div>
+  );
+}
+
+
+function DrawingLayer({ drawing, viewportSize }: { drawing: NonNullable<Scene["drawing"]>; viewportSize: number }) {
+  const safeWidth = Math.max(1, drawing.pixelWidth);
+  const safeHeight = Math.max(1, drawing.pixelHeight);
+  const aspect = safeWidth / safeHeight;
+  let width = viewportSize;
+  let height = viewportSize;
+  if (aspect >= 1) {
+    height = viewportSize / aspect;
+  } else {
+    width = viewportSize * aspect;
+  }
+  const x = (viewportSize - width) / 2;
+  const y = (viewportSize - height) / 2;
+  return (
+    <g pointerEvents="none">
+      <rect x={x - 4} y={y - 4} width={width + 8} height={height + 8} fill="#ffffff" opacity="0.98" />
+      <image
+        href={drawing.dataUrl}
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        preserveAspectRatio="xMidYMid meet"
+        opacity={drawing.opacity}
+      />
+    </g>
   );
 }
 
@@ -754,6 +797,50 @@ function ObjectGlyph({ object, selected, onSelect, onBeginDrag, viewportSize, pl
 
   const fill = selected ? "rgba(232,177,105,0.18)" : "rgba(200,204,211,0.1)";
   const stroke = selected ? "#e8b169" : "rgba(200,204,211,0.55)";
+
+  if (object.technical?.kind === "cctv-camera") {
+    const rangePx = (Math.max(0.5, object.technical.range) / planSize) * viewportSize;
+    const half = Math.max(10, Math.min(170, object.technical.fov)) / 2;
+    const a1 = (-half * Math.PI) / 180;
+    const a2 = (half * Math.PI) / 180;
+    const p1 = { x: centerX + Math.cos(a1) * rangePx, y: centerY + Math.sin(a1) * rangePx };
+    const p2 = { x: centerX + Math.cos(a2) * rangePx, y: centerY + Math.sin(a2) * rangePx };
+    const cameraStroke = selected ? "#e8b169" : "#4fb3b1";
+    return (
+      <g
+        transform={`rotate(${-object.rotation.y} ${centerX} ${centerY})`}
+        style={{ cursor: "move" }}
+        onMouseDown={(event) => {
+          event.stopPropagation();
+          const svg = event.currentTarget.ownerSVGElement;
+          if (!svg) return;
+          const point = pointFromClient(event.clientX, event.clientY, svg);
+          onBeginDrag(object.id, point, (clientX, clientY) => pointFromClient(clientX, clientY, svg));
+        }}
+        onClick={(event) => {
+          event.stopPropagation();
+          onSelect(object.id);
+        }}
+        onContextMenu={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          onContextMenu(object.id, event.clientX, event.clientY);
+        }}
+      >
+        <path
+          d={`M ${centerX} ${centerY} L ${p1.x} ${p1.y} A ${rangePx} ${rangePx} 0 0 1 ${p2.x} ${p2.y} Z`}
+          fill="rgba(79,179,177,0.10)"
+          stroke="rgba(79,179,177,0.48)"
+          strokeWidth="1.2"
+          pointerEvents="none"
+        />
+        <line x1={centerX} y1={centerY} x2={centerX + Math.min(rangePx, 42)} y2={centerY} stroke={cameraStroke} strokeWidth="2" pointerEvents="none" />
+        <circle cx={centerX} cy={centerY} r={selected ? 9 : 7} fill="#0c1118" stroke={cameraStroke} strokeWidth={selected ? 3 : 2} />
+        <path d={`M ${centerX + 8} ${centerY - 5} L ${centerX + 18} ${centerY} L ${centerX + 8} ${centerY + 5} Z`} fill={cameraStroke} pointerEvents="none" />
+        <text x={centerX} y={centerY - 13} textAnchor="middle" fill={cameraStroke} fontSize="10" fontWeight="700" pointerEvents="none">{object.technical.cameraId}</text>
+      </g>
+    );
+  }
 
   const glyph = glyphForKind(object.procedural?.kind ?? "generic-box");
 
