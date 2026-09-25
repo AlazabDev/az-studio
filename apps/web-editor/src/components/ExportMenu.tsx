@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { IconChevronDown, IconCube, IconDownload } from "./Icon";
 import {
   exportCompressedSceneJson,
@@ -7,6 +7,7 @@ import {
   type ExportFormat
 } from "../utils/sceneExport";
 import { toast } from "./Toast";
+import { TopbarMenuPortal } from "./TopbarMenuPortal";
 
 type ExportMenuProps = {
   getSerializedSceneJson?: () => string;
@@ -28,18 +29,7 @@ const OPTIONS: ExportOption[] = [
 export function ExportMenu({ getSerializedSceneJson }: ExportMenuProps) {
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
-  const rootRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onDown = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-    window.addEventListener("mousedown", onDown);
-    return () => window.removeEventListener("mousedown", onDown);
-  }, [open]);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const runExport = async (option: ExportOption) => {
     setBusy(option.id);
@@ -72,8 +62,9 @@ export function ExportMenu({ getSerializedSceneJson }: ExportMenuProps) {
   };
 
   return (
-    <div className="menu" ref={rootRef}>
+    <div className="menu">
       <button
+        ref={buttonRef}
         type="button"
         className="btn btn-ghost"
         onClick={() => setOpen((value) => !value)}
@@ -83,31 +74,29 @@ export function ExportMenu({ getSerializedSceneJson }: ExportMenuProps) {
       >
         <IconDownload /> <span>Export</span> <IconChevronDown size={12} />
       </button>
-      {open ? (
-        <div className="menu-panel" role="menu">
-          {OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              role="menuitem"
-              className="menu-item"
-              disabled={busy !== null}
-              onClick={() => {
-                void runExport(option);
-              }}
-            >
-              <IconCube size={14} />
-              <div style={{ display: "grid", gap: 2 }}>
-                <span>
-                  {option.label}
-                  {busy === option.id ? " …" : ""}
-                </span>
-                <span className="muted">{option.description}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      ) : null}
+      <TopbarMenuPortal open={open} anchorRef={buttonRef} onClose={() => setOpen(false)}>
+        {OPTIONS.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            role="menuitem"
+            className="menu-item"
+            disabled={busy !== null}
+            onClick={() => {
+              void runExport(option);
+            }}
+          >
+            <IconCube size={14} />
+            <div style={{ display: "grid", gap: 2 }}>
+              <span>
+                {option.label}
+                {busy === option.id ? " …" : ""}
+              </span>
+              <span className="muted">{option.description}</span>
+            </div>
+          </button>
+        ))}
+      </TopbarMenuPortal>
     </div>
   );
 }
