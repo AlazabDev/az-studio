@@ -10,7 +10,8 @@ export function serializeScene(scene: Scene): string {
         unitSystem: scene.unitSystem
       },
       scene: {
-        entities: scene.entities
+        entities: scene.entities,
+        drawing: scene.drawing
       }
     },
     null,
@@ -34,6 +35,7 @@ export async function readSceneFile(file: File): Promise<Scene> {
     id: raw?.project?.id ?? "imported-scene",
     name: raw?.project?.name ?? "Imported Project",
     unitSystem: raw?.project?.unitSystem ?? "m",
-    entities: raw?.scene?.entities ?? []
+    entities: raw?.scene?.entities ?? [],
+    drawing: raw?.scene?.drawing
   };
 }
