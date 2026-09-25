@@ -22,6 +22,7 @@ import {
   duplicateSelectedEntity,
   loadEmptyProject,
   loadScene,
+  placeCctvCamera,
   placeHostedOpening,
   placePendingComponent,
   redo,
@@ -31,6 +32,7 @@ import {
   selectedEntity,
   setActiveTool,
   setComponentCatalog,
+  setDrawingBackground,
   setMeasureStart,
   setPendingComponent,
   setRoomStart,
@@ -46,7 +48,7 @@ import {
   CommandPaletteProvider
 } from "./components/CommandPalette";
 import { ExportMenu } from "./components/ExportMenu";
-import { IconBox, IconFolder, IconMessage, IconSettings, IconTree } from "./components/Icon";
+import { IconBox, IconCamera, IconFolder, IconMessage, IconSettings, IconTree, IconUpload } from "./components/Icon";
 import { PanelHandle } from "./components/PanelHandle";
 import { PlanView2D } from "./components/PlanView2D";
 import { ProjectActions } from "./components/ProjectActions";
@@ -60,6 +62,7 @@ import { Toaster, toast } from "./components/Toast";
 import { Toolbar } from "./components/Toolbar";
 import { ViewModeTabs, type ViewMode } from "./components/ViewModeTabs";
 import { importUserCatalog, loadRuntimeCatalogs, mergeCatalogComponents } from "./utils/catalogIO";
+import { readDrawingFile } from "./utils/drawingIO";
 import { downloadScene, readSceneFile, serializeScene } from "./utils/sceneIO";
 
 const planSize = 14;
@@ -77,10 +80,12 @@ const SHORTCUT_TOOLS: Record<string, ToolMode> = {
   w: "draw-wall",
   r: "draw-room",
   p: "place-component",
-  m: "measure"
+  m: "measure",
+  c: "place-camera"
 };
 
 function App() {
+  const [workspaceMode, setWorkspaceMode] = useState<"design" | "technical">("design");
   const [editorState, setEditorState] = useState<EditorState>(() => createInitialEditorState());
   const [catalogSummaries, setCatalogSummaries] = useState<ComponentCatalogSummary[]>(() => listCatalogSummaries());
   const [viewMode, setViewMode] = useState<ViewMode>("split");
@@ -92,6 +97,7 @@ function App() {
   const [dragPreview, setDragPreview] = useState<Entity | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const catalogInputRef = useRef<HTMLInputElement | null>(null);
+  const drawingInputRef = useRef<HTMLInputElement | null>(null);
   const ignoreCanvasClickRef = useRef(false);
 
   const stats = useMemo(() => sceneStats(editorState.scene), [editorState.scene]);
@@ -135,6 +141,16 @@ function App() {
           ["Click", "Free placement"],
           ["Click wall", "Hosted door/window"],
           ["Esc", "Cancel"]
+        ]
+      };
+    }
+    if (editorState.activeTool === "place-camera") {
+      return {
+        title: "Place CCTV camera",
+        rows: [
+          ["Click", "Place camera"],
+          ["C", "Camera tool"],
+          ["Esc", "Select"]
         ]
       };
     }
@@ -206,6 +222,7 @@ function App() {
         return;
       }
       const nextTool = SHORTCUT_TOOLS[event.key.toLowerCase()];
+      if (nextTool === "place-camera" && workspaceMode !== "technical") return;
       if (nextTool) {
         event.preventDefault();
         setEditorState((current) => setActiveTool(current, nextTool));
@@ -213,7 +230,7 @@ function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [workspaceMode]);
 
   // Auto-open inspector when a selection appears.
   useEffect(() => {
@@ -290,6 +307,10 @@ function App() {
       setEditorState((current) => placePendingComponent(current, point));
       return;
     }
+    if (editorState.activeTool === "place-camera") {
+      setEditorState((current) => placeCctvCamera(current, point));
+      return;
+    }
     setEditorState((current) => selectEntity(current, null));
   };
 
@@ -315,7 +336,8 @@ function App() {
         id: raw?.project?.id ?? raw?.id ?? "imported-scene",
         name: raw?.project?.name ?? raw?.name ?? name,
         unitSystem: raw?.project?.unitSystem ?? raw?.unitSystem ?? "m",
-        entities: raw?.scene?.entities ?? raw?.entities ?? []
+        entities: raw?.scene?.entities ?? raw?.entities ?? [],
+        drawing: raw?.scene?.drawing ?? raw?.drawing
       };
       setEditorState((current) => loadScene(current, scene));
     } catch (error) {
@@ -353,6 +375,37 @@ function App() {
     }),
     []
   );
+
+  const loadDrawing = async (file: File) => {
+    try {
+      const drawing = await readDrawingFile(file);
+      setEditorState((current) => setDrawingBackground(current, drawing));
+      setWorkspaceMode("technical");
+      setViewMode("2d");
+      setEditorState((current) => setActiveTool(current, "select"));
+      toast.success(`Drawing ready · ${file.name}`);
+    } catch (error) {
+      console.error(error);
+      toast.error(error instanceof Error ? error.message : "Failed to load drawing");
+    }
+  };
+
+  const enterDesign = () => {
+    setWorkspaceMode("design");
+    setLeftPanelOpen(true);
+    setEditorState((current) => setActiveTool(current, "select"));
+  };
+
+  const enterTechnicalReview = () => {
+    setWorkspaceMode("technical");
+    setViewMode("2d");
+    setLeftPanelOpen(false);
+    setRightPanelOpen(true);
+    setEditorState((current) => {
+      const base = current.scene.id === "atelier-loft" ? loadEmptyProject(current) : current;
+      return setActiveTool(base, "select");
+    });
+  };
 
   const paletteCommands = useMemo(
     () =>
@@ -396,11 +449,43 @@ function App() {
           </div>
         </div>
 
-        <div className="topbar-center">
-          <ViewModeTabs value={viewMode} onChange={setViewMode} />
+        <div className="topbar-center" style={{ gap: 8, alignItems: "center" }}>
+          <div className="view-switcher" aria-label="Workspace mode">
+            <button
+              type="button"
+              aria-pressed={workspaceMode === "design"}
+              onClick={enterDesign}
+            >
+              Design
+            </button>
+            <button
+              type="button"
+              aria-pressed={workspaceMode === "technical"}
+              onClick={enterTechnicalReview}
+            >
+              <IconCamera size={14} /> CCTV Review
+            </button>
+          </div>
+          {workspaceMode === "design" ? <ViewModeTabs value={viewMode} onChange={setViewMode} /> : null}
         </div>
 
         <div className="topbar-actions">
+          {workspaceMode === "technical" ? (
+            <>
+              <button type="button" className="btn btn-ghost" onClick={() => drawingInputRef.current?.click()} title="Upload floor plan">
+                <IconUpload /> <span>{editorState.scene.drawing ? "Replace drawing" : "Upload drawing"}</span>
+              </button>
+              <button type="button" className="btn btn-primary" onClick={() => setEditorState((current) => setActiveTool(current, "place-camera"))}>
+                <IconCamera /> <span>Add camera</span>
+              </button>
+              {editorState.scene.drawing ? (
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => setEditorState((current) => setDrawingBackground(current, undefined))}>
+                  Remove drawing
+                </button>
+              ) : null}
+              <span className="divider" aria-hidden="true" />
+            </>
+          ) : null}
           <ProjectActions
             onNewProject={() => setEditorState((current) => loadEmptyProject(current))}
             onSave={() => downloadScene(editorState.scene)}
@@ -410,8 +495,9 @@ function App() {
             onRedo={() => setEditorState((current) => redo(current))}
             canUndo={canUndo(editorState)}
             canRedo={canRedo(editorState)}
+            showCatalog={workspaceMode === "design"}
           />
-          <SamplesMenu onLoadSample={loadSampleFile} />
+          {workspaceMode === "design" ? <SamplesMenu onLoadSample={loadSampleFile} /> : null}
           <ExportMenu getSerializedSceneJson={() => serializeScene(editorState.scene)} />
         </div>
 
@@ -425,6 +511,10 @@ function App() {
             if (!file) return;
             const scene = await readSceneFile(file);
             setEditorState((current) => loadScene(current, scene));
+            if (scene.drawing) {
+              setWorkspaceMode("technical");
+              setViewMode("2d");
+            }
             event.target.value = "";
           }}
         />
@@ -440,6 +530,18 @@ function App() {
             const merged = mergeCatalogComponents(editorState.componentCatalog, imported);
             setEditorState((current) => setComponentCatalog(current, merged.components));
             setCatalogSummaries(merged.catalogs);
+            event.target.value = "";
+          }}
+        />
+        <input
+          ref={drawingInputRef}
+          type="file"
+          accept="application/pdf,image/png,image/jpeg,image/webp"
+          hidden
+          onChange={async (event) => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+            await loadDrawing(file);
             event.target.value = "";
           }}
         />
@@ -545,6 +647,7 @@ function App() {
                   onSelectEntity={(entityId) => setEditorState((current) => selectEntity(current, entityId))}
                   onBeginEntityDrag={handleBeginEntityDrag}
                   onPlaceHostedOpening={(wallId, point) => setEditorState((current) => placeHostedOpening(current, wallId, point))}
+                  reviewMode={workspaceMode === "technical"}
                   {...entityContextHandlers}
                 />
                 <Scene3D scene={editorState.scene} entities={renderEntities} selectedEntityId={editorState.selectedEntityId} onUpdateEntity={(next) => setEditorState((cur) => updateSelectedEntity(cur, next))} />
@@ -571,6 +674,7 @@ function App() {
                   onSelectEntity={(entityId) => setEditorState((current) => selectEntity(current, entityId))}
                   onBeginEntityDrag={handleBeginEntityDrag}
                   onPlaceHostedOpening={(wallId, point) => setEditorState((current) => placeHostedOpening(current, wallId, point))}
+                  reviewMode={workspaceMode === "technical"}
                   {...entityContextHandlers}
                 />
               </div>
@@ -584,6 +688,7 @@ function App() {
           <div className="overlay overlay-bottom-center">
             <Toolbar
               activeTool={editorState.activeTool}
+              mode={workspaceMode}
               onSelectTool={(tool) => setEditorState((current) => setActiveTool(current, tool))}
             />
           </div>
