@@ -9,6 +9,7 @@ type ProjectActionsProps = {
   onRedo: () => void;
   canUndo: boolean;
   canRedo: boolean;
+  showCatalog?: boolean;
 };
 
 export function ProjectActions({
@@ -19,7 +20,8 @@ export function ProjectActions({
   onUndo,
   onRedo,
   canUndo,
-  canRedo
+  canRedo,
+  showCatalog = true
 }: ProjectActionsProps) {
   return (
     <>
@@ -39,10 +41,14 @@ export function ProjectActions({
       <button type="button" className="btn btn-primary" onClick={onSave} title="Save .json project">
         <IconDownload /> <span>Save</span>
       </button>
-      <span className="divider" aria-hidden="true" />
-      <button type="button" className="btn btn-ghost btn-sm" onClick={onImportCatalog} title="Import a component catalog .json">
-        Catalog
-      </button>
+      {showCatalog ? (
+        <>
+          <span className="divider" aria-hidden="true" />
+          <button type="button" className="btn btn-ghost btn-sm" onClick={onImportCatalog} title="Import a component catalog .json">
+            Catalog
+          </button>
+        </>
+      ) : null}
     </>
   );
 }
