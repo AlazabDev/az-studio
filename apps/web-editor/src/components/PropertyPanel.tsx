@@ -130,15 +130,17 @@ export function PropertyPanel({
           recents={recents}
         />
       ) : null}
-      {selection.type === "object" ? <ObjectFields object={selection} onUpdate={onUpdateObject} /> : null}
+      {selection.type === "object" ? (selection.technical?.kind === "cctv-camera" ? <CctvCameraFields object={selection} onUpdate={onUpdateObject} /> : <ObjectFields object={selection} onUpdate={onUpdateObject} />) : null}
       {(selection.type === "door" || selection.type === "window") ? (
         <OpeningFields opening={selection} onUpdate={onUpdateOpening} />
       ) : null}
 
       <div className="inspector-actions">
-        <button type="button" className="btn" onClick={onDuplicate}>
-          <IconCopy /> Duplicate
-        </button>
+        {selection.type === "object" && selection.technical?.kind === "cctv-camera" ? null : (
+          <button type="button" className="btn" onClick={onDuplicate}>
+            <IconCopy /> Duplicate
+          </button>
+        )}
         <button type="button" className="btn btn-danger" onClick={onDelete}>
           <IconTrash /> Delete
         </button>
@@ -270,6 +272,66 @@ function SwatchRow({
   );
 }
 
+function CctvCameraFields({
+  object,
+  onUpdate
+}: {
+  object: ObjectEntity;
+  onUpdate: <K extends keyof ObjectEntity>(object: ObjectEntity, key: K, value: ObjectEntity[K]) => void;
+}) {
+  const camera = object.technical;
+  if (!camera || camera.kind !== "cctv-camera") return null;
+
+  const updateCamera = (patch: Partial<typeof camera>) => {
+    onUpdate(object, "technical", { ...camera, ...patch });
+  };
+
+  return (
+    <>
+      <div className="section">
+        <div className="section-title">CCTV Camera</div>
+        <div className="metric-inline"><span>Camera ID</span><span className="value">{camera.cameraId}</span></div>
+        <FieldSelect
+          label="Type"
+          value={camera.cameraType}
+          options={[
+            ["dome", "Dome"],
+            ["bullet", "Bullet"],
+            ["ptz", "PTZ"],
+            ["other", "Other"]
+          ]}
+          onChange={(value) => updateCamera({ cameraType: value as typeof camera.cameraType })}
+        />
+        <FieldSelect
+          label="Status"
+          value={camera.status}
+          options={[
+            ["proposed", "Proposed"],
+            ["reviewed", "Reviewed"],
+            ["approved", "Approved"]
+          ]}
+          onChange={(value) => updateCamera({ status: value as typeof camera.status })}
+        />
+      </div>
+      <div className="section">
+        <div className="section-title">Coverage</div>
+        <FieldNumber label="Direction (°)" value={object.rotation.y} step={5} onChange={(v) => onUpdate(object, "rotation", { ...object.rotation, y: v })} />
+        <div className="field-row">
+          <FieldNumber label="FOV (°)" value={camera.fov} step={5} onChange={(v) => updateCamera({ fov: Math.max(10, Math.min(170, v)) })} />
+          <FieldNumber label="Range (m)" value={camera.range} step={0.5} onChange={(v) => updateCamera({ range: Math.max(0.5, v) })} />
+        </div>
+        <FieldNumber label="Install height (m)" value={camera.installationHeight} step={0.1} onChange={(v) => updateCamera({ installationHeight: Math.max(0, v) })} />
+      </div>
+      <div className="section">
+        <div className="section-title">Review data</div>
+        <FieldText label="Area" value={camera.area} onChange={(v) => updateCamera({ area: v })} />
+        <FieldText label="Purpose" value={camera.purpose} onChange={(v) => updateCamera({ purpose: v })} />
+        <FieldText label="Note" value={camera.note} onChange={(v) => updateCamera({ note: v })} />
+      </div>
+    </>
+  );
+}
+
 function ObjectFields({
   object,
   onUpdate
@@ -384,6 +446,29 @@ function FieldNumber({
           }
         }}
       />
+    </label>
+  );
+}
+
+function FieldSelect({
+  label,
+  value,
+  options,
+  onChange
+}: {
+  label: string;
+  value: string;
+  options: Array<[string, string]>;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="field-group">
+      <span className="field-label">{label}</span>
+      <select className="input" value={value} onChange={(event) => onChange(event.target.value)}>
+        {options.map(([optionValue, optionLabel]) => (
+          <option key={optionValue} value={optionValue}>{optionLabel}</option>
+        ))}
+      </select>
     </label>
   );
 }
