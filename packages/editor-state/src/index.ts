@@ -9,6 +9,7 @@ import {
   sampleScene,
   type ComponentDefinition,
   type DoorEntity,
+  type DrawingBackground,
   type Entity,
   type Scene,
   type UnitSystem,
@@ -32,6 +33,7 @@ export type ToolMode =
   | "draw-wall"
   | "draw-room"
   | "place-component"
+  | "place-camera"
   | "measure";
 
 export type CommandHistory = {
@@ -199,6 +201,7 @@ function toolStatusMessage(tool: ToolMode): string {
     case "draw-wall":        return "Wall tool · click start, then click end.";
     case "draw-room":        return "Room tool · drag a rectangle to create four walls.";
     case "place-component":  return "Placement tool · click in the plan or on a wall for hosted items.";
+    case "place-camera":     return "CCTV camera · click on the drawing to place a camera.";
     case "measure":          return "Measure · click two points to measure distance.";
     case "pan":              return "Pan · drag the canvas to reposition.";
     default:                 return "Select tool · click, drag to move.";
@@ -339,6 +342,57 @@ export function placePendingComponent(state: EditorState, point: Vec2): EditorSt
   };
 
   return applyCommand(state, placeObjectCommand(state.scene, object), object.id);
+}
+
+
+export function placeCctvCamera(state: EditorState, point: Vec2): EditorState {
+  const nextCameraNumber = state.scene.entities.reduce((max, entity) => {
+    if (entity.type !== "object" || entity.technical?.kind !== "cctv-camera") return max;
+    const match = entity.technical.cameraId.match(/(\d+)$/);
+    const value = match ? Number(match[1]) : 0;
+    return Number.isFinite(value) ? Math.max(max, value) : max;
+  }, 0) + 1;
+  const cameraId = `C-${String(nextCameraNumber).padStart(2, "0")}`;
+  const object: Entity = {
+    id: createId("camera"),
+    type: "object",
+    name: cameraId,
+    assetKey: "cctv-camera",
+    category: "CCTV",
+    position: { x: point.x, y: 3.2, z: point.y },
+    rotation: { x: 0, y: 0, z: 0 },
+    scale: { x: 1, y: 1, z: 1 },
+    material: "CCTV",
+    footprint: { x: 0.35, y: 0.35 },
+    height: 0.2,
+    technical: {
+      kind: "cctv-camera",
+      cameraId,
+      cameraType: "dome",
+      fov: 90,
+      range: 8,
+      installationHeight: 3.2,
+      area: "",
+      purpose: "",
+      note: "",
+      status: "proposed"
+    }
+  };
+  return applyCommand(state, placeObjectCommand(state.scene, object), object.id);
+}
+
+export function setDrawingBackground(state: EditorState, drawing: DrawingBackground | undefined): EditorState {
+  return {
+    ...state,
+    scene: {
+      ...state.scene,
+      name: drawing && (state.scene.name === "Untitled Project" || state.scene.id === "scene-root")
+        ? drawing.name.replace(/\.[^.]+$/, "")
+        : state.scene.name,
+      drawing
+    },
+    statusMessage: drawing ? `Drawing loaded · ${drawing.name}` : "Drawing removed."
+  };
 }
 
 export function placeHostedOpening(state: EditorState, wallId: string, point: Vec2): EditorState {
