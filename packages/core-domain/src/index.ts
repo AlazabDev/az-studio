@@ -15,6 +15,31 @@ export type Vec3 = {
   z: number;
 };
 
+export type DrawingBackground = {
+  name: string;
+  sourceType: "image" | "pdf";
+  dataUrl: string;
+  pixelWidth: number;
+  pixelHeight: number;
+  opacity: number;
+};
+
+export type CctvCameraType = "dome" | "bullet" | "ptz" | "other";
+export type CctvCameraStatus = "proposed" | "reviewed" | "approved";
+
+export type CctvCameraData = {
+  kind: "cctv-camera";
+  cameraId: string;
+  cameraType: CctvCameraType;
+  fov: number;
+  range: number;
+  installationHeight: number;
+  area: string;
+  purpose: string;
+  note: string;
+  status: CctvCameraStatus;
+};
+
 export type WallEntity = {
   id: string;
   type: "wall";
@@ -42,6 +67,7 @@ export type ObjectEntity = {
   height: number;
   procedural?: ProceduralRecipe;
   modelUrl?: string;
+  technical?: CctvCameraData;
 };
 
 export type HostedOpeningBase = {
@@ -71,6 +97,7 @@ export type Scene = {
   name: string;
   unitSystem: UnitSystem;
   entities: Entity[];
+  drawing?: DrawingBackground;
 };
 
 export type ComponentPlacementMode = "free" | "hosted-wall";
